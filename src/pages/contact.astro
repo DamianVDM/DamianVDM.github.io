@@ -36,7 +36,6 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
         <p>Request a custom quote, verify stock, or ask our engineering team a question</p>
       </div>
     </header>
-
     <!-- Main Content -->
     <main class="content-section container">
       <div class="contact-grid">
@@ -78,55 +77,91 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
                 <label for="clientEmail">Email Address *</label>
                 <input type="email" id="clientEmail" name="clientEmail" required placeholder="john@company.com" />
               </div>
+
               <div class="form-group">
                 <label for="clientPhone">Contact Number *</label>
-                <input type="tel" id="clientPhone" name="clientPhone" required placeholder="+1 (555) 000-0000" />
+                <div class="phone-input-wrapper">
+                  <select id="countryCode" name="countryCode" required class="country-code-select">
+                    <option value="+44">🇬🇧 UK (+44)</option>
+                    <option value="+27" selected>🇿🇦 ZA (+27)</option>
+                    <option value="+1">🇺🇸 US (+1)</option>
+                    <option value="+61">🇦🇺 AU (+61)</option>
+                    <option value="+49">🇩🇪 DE (+49)</option>
+                    <option value="+31">🇳🇱 NL (+31)</option>
+                    <option value="+971">🇦🇪 AE (+971)</option>
+                    <option value="+91">🇮🇳 IN (+91)</option>
+                  </select>
+                  <input type="tel" id="clientPhone" name="clientPhone" required placeholder="71 234 5678" />
+                </div>
               </div>
             </div>
 
-            <!-- Dynamic Product Selection -->
-            <div class="form-group">
-              <label for="productCategory">Product Category *</label>
-              <select id="productCategory" name="productCategory" required>
-                <option value="">-- Select a Category --</option>
-                <optgroup label="Bar Stock">
-                  <option value="Stainless Steel Bar">Stainless Steel Bar Stock</option>
-                  <option value="Mild Steel Merchant Bar">Mild Steel Merchant Bar</option>
-                  <option value="Engineering Steel">Engineering Steel</option>
-                  <option value="Aluminum Bar">Aluminum Bar</option>
-                </optgroup>
-                <optgroup label="Tube">
-                  <option value="Stainless Steel Tube">Stainless Steel Tube</option>
-                  <option value="Mild Steel Welded Tube">Mild Steel Welded Tube</option>
-                  <option value="Aluminium Tube">Aluminium Tube</option>
-                </optgroup>
-                <optgroup label="Sheet & Plate">
-                  <option value="Stainless Steel Sheet & Plate">Stainless Steel Sheet & Plate</option>
-                  <option value="Mild Steel Sheet & Plate">Mild Steel Sheet & Plate</option>
-                  <option value="Aluminium Sheet & Plate">Aluminium Sheet & Plate</option>
-                </optgroup>
-                <optgroup label="Pipes & Fittings">
-                  <option value="Pipe & Fittings">Pipe & Fittings</option>
-                  <option value="Hygienic Tube & Fittings">Hygienic Tube & Fittings</option>
-                </optgroup>
-                <optgroup label="Other">
-                  <option value="Additional Products">Additional Specialized Products</option>
-                </optgroup>
-              </select>
+            <!-- Dynamic Product Selector (Construct Multiple Products List) -->
+            <div class="product-selector-box">
+              <span class="selector-box-title">Select Products to Add to Quote Inquiry</span>
+
+              <div class="form-group">
+                <label for="productCategory">Product Category</label>
+                <select id="productCategory" name="productCategory">
+                  <option value="">-- Select a Category --</option>
+                  <optgroup label="Bar Stock">
+                    <option value="Stainless Steel Bar">Stainless Steel Bar Stock</option>
+                    <option value="Mild Steel Merchant Bar">Mild Steel Merchant Bar</option>
+                    <option value="Engineering Steel">Engineering Steel</option>
+                    <option value="Aluminum Bar">Aluminum Bar</option>
+                  </optgroup>
+                  <optgroup label="Tube">
+                    <option value="Stainless Steel Tube">Stainless Steel Tube</option>
+                    <option value="Mild Steel Welded Tube">Mild Steel Welded Tube</option>
+                    <option value="Aluminium Tube">Aluminium Tube</option>
+                  </optgroup>
+                  <optgroup label="Sheet & Plate">
+                    <option value="Stainless Steel Sheet & Plate">Stainless Steel Sheet & Plate</option>
+                    <option value="Mild Steel Sheet & Plate">Mild Steel Sheet & Plate</option>
+                    <option value="Aluminium Sheet & Plate">Aluminium Sheet & Plate</option>
+                  </optgroup>
+                  <optgroup label="Pipes & Fittings">
+                    <option value="Pipe & Fittings">Pipe & Fittings</option>
+                    <option value="Hygienic Tube & Fittings">Hygienic Tube & Fittings</option>
+                  </optgroup>
+                  <optgroup label="Other">
+                    <option value="Additional Products">Additional Specialized Products</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <!-- Hidden Secondary Dropdown (Populated via JS) -->
+              <div class="form-group hidden" id="subProductGroup">
+                <label for="subProduct">Specific Product / Form</label>
+                <div class="sub-product-action-row">
+                  <select id="subProduct" name="subProduct">
+                    <option value="">-- Select a Specific Product --</option>
+                  </select>
+                  <button type="button" id="addProductBtn" class="btn-add-product" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Product
+                  </button>
+                </div>
+              </div>
             </div>
 
-            <!-- Hidden Secondary Dropdown (Populated via JS) -->
-            <div class="form-group hidden" id="subProductGroup">
-              <label for="subProduct">Specific Product / Form *</label>
-              <select id="subProduct" name="subProduct">
-                <option value="">-- Select a Specific Product --</option>
-              </select>
+            <!-- Selected Products List Container -->
+            <div class="form-group">
+              <span class="selected-products-title">Items Added to Inquiry *</span>
+              <div id="selectedProductsContainer" class="selected-products-container">
+                <span class="no-products-text">No products added yet. Select a category and product above to build your inquiry.</span>
+              </div>
+              <span id="productValidationError" class="validation-error hidden">⚠️ You must add at least one product to submit your quote request.</span>
+              <input type="hidden" id="selectedProductsInput" name="selectedProducts" required />
             </div>
 
             <!-- Inquiry Details -->
             <div class="form-group">
               <label for="clientQuery">What are you looking for? / Additional Questions *</label>
-              <textarea id="clientQuery" name="clientQuery" rows="5" required placeholder="Please provide specific grades, dimensions, lengths, quantities, or ask us any questions..."></textarea>
+              <textarea id="clientQuery" name="clientQuery" rows="5" required placeholder="Please provide specific dimensions, specifications, lengths, quantities, or ask us any questions..."></textarea>
             </div>
 
             <button type="submit" class="btn-submit">Submit Inquiry</button>
@@ -140,9 +175,13 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
     <div id="successModal" class="modal hidden">
       <div class="modal-content">
         <div class="modal-icon">✓</div>
-        <h3>Thank You!</h3>
-        <p>Your inquiry has been submitted successfully. Our sales team will review your requirements and contact you shortly.</p>
-        <button id="closeModalBtn" class="btn-submit" style="width: auto; padding: 12px 32px; margin: 0 auto;">Return to Home</button>
+        <h3>Inquiry Sent!</h3>
+        <p>Thank you. Your request was successfully submitted. Our sales team will evaluate the following items and contact you shortly:</p>
+
+        <!-- Interactive selected items summary list -->
+        <ul id="modalProductSummary" class="modal-product-summary"></ul>
+
+        <button id="closeModalBtn" class="btn-submit" style="width: auto; padding: 12px 32px; margin: 24px auto 0 auto;">Return to Home</button>
       </div>
     </div>
 
@@ -180,16 +219,24 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
         <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
       </div>
     </footer>
-
-    <!-- Interactive Client-Side Script for Cascading Dropdowns -->
+    <!-- Interactive Client-Side Script for Cascading Dropdowns and Tag Builder -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const categorySelect = document.getElementById('productCategory');
         const subProductSelect = document.getElementById('subProduct');
         const subProductGroup = document.getElementById('subProductGroup');
+        const addProductBtn = document.getElementById('addProductBtn');
+        const selectedProductsContainer = document.getElementById('selectedProductsContainer');
+        const selectedProductsInput = document.getElementById('selectedProductsInput');
+        const productValidationError = document.getElementById('productValidationError');
         const form = document.getElementById('quoteForm');
+
         const successModal = document.getElementById('successModal');
+        const modalProductSummary = document.getElementById('modalProductSummary');
         const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // State Array for added products
+        let selectedProductsList = [];
 
         // Product mapping based on the provided text documents
         const productMapping = {
@@ -212,12 +259,36 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
           "Additional Products": ["Walkway grating", "Mesh (Woven, welded)", "Expanded metal/diamond mesh", "Aluminised steel tube", "Cold rolled fin cut precision tube", "Mandrel bent elbows", "Carbon Pipes (A106 Grade B)"]
         };
 
+        // Render Active List Elements
+        function renderSelectedProducts() {
+          selectedProductsContainer.innerHTML = '';
+
+          if (selectedProductsList.length === 0) {
+            selectedProductsContainer.innerHTML = '<span class="no-products-text">No products added yet. Select a category and product above to build your inquiry.</span>';
+            selectedProductsInput.value = '';
+          } else {
+            selectedProductsInput.value = JSON.stringify(selectedProductsList);
+            productValidationError.classList.add('hidden'); // Clear error state
+
+            selectedProductsList.forEach((prod, index) => {
+              const badge = document.createElement('div');
+              badge.className = 'product-badge';
+              badge.innerHTML = `
+                <span><strong>${prod.category}:</strong> ${prod.subProduct}</span>
+                <button type="button" class="remove-badge-btn" data-index="${index}" aria-label="Remove Product">&times;</button>
+              `;
+              selectedProductsContainer.appendChild(badge);
+            });
+          }
+        }
+
         // Handle Primary Category Change
         categorySelect.addEventListener('change', (e) => {
           const selectedCategory = e.target.value;
 
           // Reset the secondary dropdown
           subProductSelect.innerHTML = '<option value="">-- Select a Specific Product --</option>';
+          addProductBtn.disabled = true;
 
           if (selectedCategory && productMapping[selectedCategory]) {
             // Populate the secondary dropdown
@@ -228,13 +299,47 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
               subProductSelect.appendChild(option);
             });
 
-            // Show the group and make it required
+            // Show the group
             subProductGroup.classList.remove('hidden');
-            subProductSelect.required = true;
           } else {
-            // Hide the group and remove requirement if no valid category is selected
+            // Hide the group if no valid category is selected
             subProductGroup.classList.add('hidden');
-            subProductSelect.required = false;
+          }
+        });
+
+        // Toggle Add Product Button on Sub Product Selection
+        subProductSelect.addEventListener('change', (e) => {
+          addProductBtn.disabled = !e.target.value;
+        });
+
+        // Add Product Action Event
+        addProductBtn.addEventListener('click', () => {
+          const categoryText = categorySelect.options[categorySelect.selectedIndex].text;
+          const subProductText = subProductSelect.value;
+
+          if (categoryText && subProductText) {
+            // Check if product is already added in list
+            const alreadyAdded = selectedProductsList.some(
+              item => item.category === categoryText && item.subProduct === subProductText
+            );
+
+            if (!alreadyAdded) {
+              selectedProductsList.push({ category: categoryText, subProduct: subProductText });
+              renderSelectedProducts();
+            }
+
+            // Reset Subproduct Selection field
+            subProductSelect.value = '';
+            addProductBtn.disabled = true;
+          }
+        });
+
+        // Event Delegation for Removing Badges
+        selectedProductsContainer.addEventListener('click', (e) => {
+          if (e.target.classList.contains('remove-badge-btn')) {
+            const index = parseInt(e.target.getAttribute('data-index'), 10);
+            selectedProductsList.splice(index, 1);
+            renderSelectedProducts();
           }
         });
 
@@ -242,13 +347,27 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
         form.addEventListener('submit', (e) => {
           e.preventDefault();
 
-          // In a real app, this is where you'd POST the data to an endpoint
+          if (selectedProductsList.length === 0) {
+            productValidationError.classList.remove('hidden');
+            selectedProductsContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+
+          // Populate success modal products listing
+          modalProductSummary.innerHTML = selectedProductsList.map(item => `
+            <li>
+              <span class="bullet">✓</span>
+              <span><strong>${item.category}</strong> &mdash; ${item.subProduct}</span>
+            </li>
+          `).join('');
 
           // Show the elegant modal instead of a browser alert
           successModal.classList.remove('hidden');
 
-          // Reset the form
+          // Reset standard form inputs and local state
           form.reset();
+          selectedProductsList = [];
+          renderSelectedProducts();
           subProductGroup.classList.add('hidden');
         });
 
@@ -363,6 +482,155 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
     background-color: var(--white);
   }
 
+  /* International phone input styles */
+  .phone-input-wrapper {
+    display: flex;
+    gap: 12px;
+  }
+
+  .country-code-select {
+    width: 140px !important;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  /* Multi-Product Box Layout Styles */
+  .product-selector-box {
+    background-color: #f1f5f9; /* Slate 100 wrapper */
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  .selector-box-title {
+    display: block;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1rem;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--primary);
+    padding-left: 10px;
+  }
+
+  .sub-product-action-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .sub-product-action-row select {
+    flex-grow: 1;
+  }
+
+  .btn-add-product {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 24px;
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-add-product:hover:not(:disabled) {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  .btn-add-product:disabled {
+    border-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+
+  /* Selected Products list area */
+  .selected-products-title {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .selected-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px;
+    background-color: #f8fafc;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    min-height: 56px;
+    align-items: center;
+  }
+
+  .no-products-text {
+    color: var(--gray);
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  .product-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e0f2fe; /* Sky-100 */
+    color: #0369a1; /* Sky-700 */
+    border: 1px solid #bae6fd;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    animation: badgePop 0.2s ease-out;
+  }
+
+  @keyframes badgePop {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .remove-badge-btn {
+    background: none;
+    border: none;
+    color: #0284c7;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .remove-badge-btn:hover {
+    background-color: #0284c7;
+    color: var(--white);
+  }
+
+  .validation-error {
+    display: block;
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
   optgroup {
     font-weight: 700;
     color: var(--primary-dark);
@@ -407,9 +675,9 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
 
   .modal-content {
     background-color: var(--white);
-    padding: 48px;
+    padding: 40px;
     border-radius: 12px;
-    max-width: 450px;
+    max-width: 500px;
     width: 90%;
     text-align: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -449,8 +717,39 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
 
   .modal-content p {
     color: var(--gray);
-    margin-bottom: 32px;
+    margin-bottom: 20px;
     line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Success Modal Product Summary Items */
+  .modal-product-summary {
+    list-style: none;
+    text-align: left;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+
+  .modal-product-summary li {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .modal-product-summary li:last-child {
+    margin-bottom: 0;
+  }
+
+  .modal-product-summary li .bullet {
+    color: #16a34a;
+    font-weight: bold;
   }
 
   @media (max-width: 992px) {
@@ -463,6 +762,13 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
     .form-row {
       grid-template-columns: 1fr;
       gap: 0;
+    }
+    .sub-product-action-row {
+      flex-direction: column;
+    }
+    .btn-add-product {
+      width: 100%;
+      height: 48px;
     }
     .contact-form-container {
       padding: 32px 24px;
