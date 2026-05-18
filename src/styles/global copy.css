@@ -42,15 +42,14 @@ a {
     color: inherit;
 }
 
-/* --- Clean White Navigation --- */
+/* Navigation */
 .navbar {
-    background-color: var(--white);
-    color: var(--dark);
+    background-color: var(--darker);
+    color: var(--white);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .nav-content {
@@ -68,14 +67,12 @@ a {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--dark);
 }
 
 .logo strong {
     color: var(--primary);
     font-weight: 800;
 }
-
 /* Logo Image Layout Fixes */
 .logo-img {
     display: block;
@@ -83,14 +80,6 @@ a {
     height: 24px;
     object-fit: contain;
 }
-
-.logo-text-img {
-    display: block;
-    height: 20px;
-    width: auto;
-    object-fit: contain;
-}
-
 .logo-icon {
     display: block;
     width: 24px;
@@ -106,10 +95,9 @@ a {
 }
 
 .nav-links a {
-    font-weight: 600;
-    color: var(--gray);
+    font-weight: 500;
+    color: #94a3b8;
     transition: color 0.2s ease;
-    font-size: 0.95rem;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -194,14 +182,14 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 40px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 /* Highlighted Card Styles */
 .spec-card.highlight-card {
     border: 2px solid var(--primary);
-    background-color: rgba(2, 132, 199, 0.01);
-    box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.08);
+    background-color: rgba(2, 132, 199, 0.03);
+    box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.15);
     position: relative;
     transform: translateY(-4px);
 }
@@ -244,7 +232,7 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
 }
 
 .spec-title {
-    color: var(--dark);
+    color: var(--text-main);
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: 12px;
@@ -260,7 +248,7 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
     position: relative;
     padding-left: 24px;
     margin-bottom: 8px;
-    color: var(--text-main);
+    color: var(--gray);
 }
 
 .spec-list li::before {
@@ -274,7 +262,7 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
 }
 
 .spec-list li strong {
-    color: var(--dark);
+    color: var(--text-main);
 }
 
 /* CTA Section */
@@ -315,15 +303,13 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
 .btn-light:hover {
     background-color: var(--gray-light);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Clean White Footer --- */
+/* Footer */
 .footer {
-    background-color: var(--white);
-    color: var(--text-main);
+    background-color: var(--darker);
+    color: #94a3b8;
     padding: 80px 0 32px 0;
-    border-top: 1px solid #e2e8f0;
 }
 
 .footer-content {
@@ -336,11 +322,10 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
 .footer-brand p {
     margin-top: 16px;
     max-width: 300px;
-    color: var(--gray);
 }
 
 .footer h4 {
-    color: var(--dark);
+    color: var(--white);
     font-size: 1.125rem;
     margin-bottom: 24px;
     text-transform: uppercase;
@@ -354,18 +339,8 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
     gap: 12px;
 }
 
-.footer-links a {
-    color: var(--gray);
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
 .footer-links a:hover {
     color: var(--primary);
-}
-
-.footer-contact {
-    color: var(--gray);
 }
 
 .footer-contact p {
@@ -373,11 +348,10 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
 }
 
 .footer-bottom {
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #1e293b;
     padding-top: 32px;
     text-align: center;
     font-size: 0.875rem;
-    color: var(--gray);
 }
 
 /* Responsive Design */
@@ -394,12 +368,5 @@ background-image: url('https://images.unsplash.com/photo-1601584658375-7b5a17de7
     .footer-content {
         grid-template-columns: 1fr;
         gap: 32px;
-    }
-    /* Logo Image Layout Fixes */
-    .logo-img {
-        display: block;
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
     }
 }

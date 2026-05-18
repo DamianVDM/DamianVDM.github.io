@@ -1,0 +1,164 @@
+---
+import '../styles/index.css';
+const siteTitle = "Stonehenge Steel UK Ltd";
+
+
+import tubeImg from '../assets/stainless-steel-welded-pipe.jpg';
+import barImg from '../assets/Bar-stock-1-scaled.jpg';
+import pipeImg from '../assets/pipe.jpeg';
+import sheetPlateImg from '../assets/sheetPlate.jpg';
+import hygienicImg from '../assets/hygienic.jpg';
+import additionalImg from '../assets/additional.jpg';
+import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+import SHLogoText from '../assets/Stonehenge-logo.png';
+
+
+import Layout from '../layouts/Layout.astro';
+
+const products = [
+  {
+    title: "Bar",
+    description: "Premium stainless, mild, engineering, and aluminum bar stock. Available in round, flat, square, hex, and angle forms for varied applications.",
+    image: barImg.src,
+    link: "/bar"
+  },
+  {
+    title: "Tube",
+    description: "Stainless, mild, and aluminum welded structural and decorative tubes. Ideal for tube bending, swaging, flaring, and precise structural work.",
+    image: tubeImg.src,
+    link: "/tube"
+  },
+  {
+    title: "Sheet & Plate",
+    description: "Hot rolled, cold rolled, tread plates, and perforated sheets in stainless steel, mild steel, and aluminum across various sizes and finishes.",
+    image: sheetPlateImg.src,
+    link: "/sheet-plate"
+  },
+  {
+    title: "Pipe",
+    description: "Welded and seamless pipes to ASTM/ANSI standards. Includes butt weld fittings, flanges, and high-pressure 3000lb threaded fittings.",
+    image: pipeImg.src,
+    link: "/pipe"
+  },
+  {
+    title: "Hygienic Tube & Fittings",
+    description: "High-purity ASTM A270 and DIN 11850 tubes in bright annealed and satin polished finishes, designed specifically for sensitive applications.",
+    image: hygienicImg.src,
+    link: "/hygienic"
+  },
+  {
+    title: "Additional Products",
+    description: "Walkway grating, woven/welded mesh, expanded metal, precision tubes, mandrel bent elbows, and carbon pipes.",
+    image: additionalImg.src,
+    link: "/additional"
+  }
+];
+---
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d4ec0e5d-872f-49f8-9816-692c649d41d9";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <title>{siteTitle} | Premium Metal Products</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <div class="logo">
+          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+          <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <span class="badge">Industrial Excellence</span>
+        <h1>Premium Steel & Metal Distribution</h1>
+        <p>Supplying top-grade stainless steel, mild steel, and aluminum products for construction, manufacturing, and hygienic applications.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">View Catalog</a>
+          <a href="/contact" class="btn btn-secondary">Request Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Products Section -->
+    <main id="products" class="products-section container">
+      <div class="section-header">
+        <h2>Our Product Categories</h2>
+        <div class="divider"></div>
+        <p>Browse our comprehensive inventory of raw materials and fittings, sourced from industry-leading manufacturers to meet your exact specifications.</p>
+      </div>
+
+      <div class="products-grid">
+        {products.map((product) => (
+          <div class="product-card">
+            <div class="card-image-wrapper">
+              <img src={product.image} alt={product.title} loading="lazy" />
+            </div>
+            <div class="card-content">
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
+              <a href={product.link} class="card-link">View Specifications &rarr;</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2>Need a custom dimension or bulk order?</h2>
+        <p>Our specialized team is ready to process your requirements. We offer precision cutting and rapid delivery on large-scale stock.</p>
+        <a href="/contact" class="btn btn-light">Contact Sales Team</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+            <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
+          </div>
+          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/bar">Bar Stock</a></li>
+            <li><a href="/tube">Tubes</a></li>
+            <li><a href="/sheet-plate">Sheet & Plate</a></li>
+            <li><a href="/pipe">Pipes & Fittings</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
+          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
+            <p><strong>Stonehenge Steel UK Limited</strong><br />
+            6 Queens Lane<br />
+            Bromfield Industrial Estate<br />
+            Mold, Flintshire<br />
+            Wales, CH7 1JR</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

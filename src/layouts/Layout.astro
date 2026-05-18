@@ -1,28 +1,84 @@
 ---
 import '../styles/global.css';
-import ChatWidget from '../components/ChatWidget.astro';
-import logoGif from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+import SHLogoText from '../assets/Stonehenge-logo.png';
+import Layout from '../layouts/Layout.astro';
 
 interface Props {
   title?: string;
 }
 
 const { title = "Premium Metal Products" } = Astro.props;
-const siteTitle = "AeroSteel Distributors";
+const siteTitle = "Stonehenge Steel UK Ltd";
+
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/gif" href={logoGif.src} />
+    <!-- Fixed: Use SHLogo.src as the fallback for favicon since logoGif was undefined -->
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d4ec0e5d-872f-49f8-9816-692c649d41d9";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <link rel="icon" type="image/gif" href={SHLogo.src} />
     <title>{title} | {siteTitle}</title>
   </head>
   <body>
-    <!-- Slot for Page Specific Content -->
-    <slot />
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <!-- Swapped text out to render side-by-side images -->
+        <a href="/" class="logo">
+          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+          <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#products" class="active">Products</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <!-- Global Chat Widget (Delayed Apparition) -->
-    <ChatWidget />
+    <!-- Main Content Slot -->
+    <main>
+      <!-- Essential for allowing your page-specific contents to render inside this wrapper layout -->
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+            <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
+          </div>
+          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/bar">Bar Stock</a></li>
+            <li><a href="/tube">Tubes</a></li>
+            <li><a href="/sheet-plate">Sheet & Plate</a></li>
+            <li><a href="/pipe">Pipes & Fittings</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
+          <p><strong>Phone:</strong> +44 (0) 1352 965 050</p>
+          <p><strong>Stonehenge Steel UK Limited</strong><br />
+          6 Queens Lane<br />
+          Bromfield Industrial Estate<br />
+          Mold, Flintshire<br />
+          Wales, CH7 1JR</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

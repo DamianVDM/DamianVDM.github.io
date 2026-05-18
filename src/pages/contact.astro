@@ -3,30 +3,12 @@ import '../styles/global.css';
 const siteTitle = "Stonehenge Steel UK Ltd";
 
 import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
-
+import Layout from '../layouts/Layout.astro';
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | {siteTitle}</title>
-  </head>
+<Layout title="Contact Us">
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container nav-content">
-        <a href="/" class="logo">
-          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
-          StoneHenge<strong>Steel</strong>
-        </a>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/#products">Products</a></li>
-          <li><a href="/contact" class="active">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
 
     <!-- Page Header -->
     <header class="page-header">
@@ -82,8 +64,8 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
                 <label for="clientPhone">Contact Number *</label>
                 <div class="phone-input-wrapper">
                   <select id="countryCode" name="countryCode" required class="country-code-select">
-                    <option value="+44">🇬🇧 UK (+44)</option>
-                    <option value="+27" selected>🇿🇦 ZA (+27)</option>
+                    <option value="+44" selected>🇬🇧 UK (+44)</option>
+                    <option value="+27">🇿🇦 ZA (+27)</option>
                     <option value="+1">🇺🇸 US (+1)</option>
                     <option value="+61">🇦🇺 AU (+61)</option>
                     <option value="+49">🇩🇪 DE (+49)</option>
@@ -125,7 +107,7 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
                     <option value="Hygienic Tube & Fittings">Hygienic Tube & Fittings</option>
                   </optgroup>
                   <optgroup label="Other">
-                    <option value="Additional Products">Additional Specialized Products</option>
+                    <option value="Additional Products">Other Products or Specifications</option>
                   </optgroup>
                 </select>
               </div>
@@ -184,41 +166,6 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
         <button id="closeModalBtn" class="btn-submit" style="width: auto; padding: 12px 32px; margin: 24px auto 0 auto;">Return to Home</button>
       </div>
     </div>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-      <div class="container footer-content">
-        <div class="footer-brand">
-          <div class="logo">
-            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
-            Stonehenge<strong>Steel</strong>
-          </div>
-          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Categories</h4>
-          <ul>
-            <li><a href="/bar">Bar Stock</a></li>
-            <li><a href="/tube">Tubes</a></li>
-            <li><a href="/sheet-plate">Sheet & Plate</a></li>
-            <li><a href="/pipe">Pipes & Fittings</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
-          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
-            <p><strong>Stonehenge Steel UK Limited</strong><br />
-            6 Queens Lane<br />
-            Bromfield Industrial Estate<br />
-            Mold, Flintshire<br />
-            Wales, CH7 1JR</p>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
-      </div>
-    </footer>
     <!-- Interactive Client-Side Script for Cascading Dropdowns and Tag Builder -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -240,23 +187,23 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
 
         // Product mapping based on the provided text documents
         const productMapping = {
-          "Stainless Steel Bar": ["Round Bar", "Flat Bar", "Equal Angle", "Hex Bar", "Square Bar"],
-          "Mild Steel Merchant Bar": ["Round Bar", "Flat Bar", "Square Bar", "Equal Angle", "Unequal Angle"],
-          "Engineering Steel": ["Black Carbon (EN3A, EN9, EN8, EN1A, S355)", "Bright Carbon (EN8D, EN8DM, EN1A, EN1A LEADED)", "Key Steel"],
-          "Aluminum Bar": ["Round Bar (6026, 2011, 6082)", "Flat Bar (6082, 6063A)", "Square Bar (6082)"],
+          "Stainless Steel Bar": ["Round Bar", "Flat Bar", "Equal Angle", "Hex Bar", "Square Bar", "Other Product or Specification"],
+          "Mild Steel Merchant Bar": ["Round Bar", "Flat Bar", "Square Bar", "Equal Angle", "Unequal Angle", "Other Product or Specification"],
+          "Engineering Steel": ["Black Carbon (EN3A, EN9, EN8, EN1A, S355)", "Bright Carbon (EN8D, EN8DM, EN1A, EN1A LEADED)", "Key Steel", "Other Product or Specification"],
+          "Aluminum Bar": ["Round Bar (6026, 2011, 6082)", "Flat Bar (6082, 6063A)", "Square Bar (6082)", "Other Product or Specification"],
 
-          "Stainless Steel Tube": ["Round Tube (Circular Hollow Section)", "Square / Rectangular Box Section", "Perforated Tube"],
-          "Mild Steel Welded Tube": ["Electric Resistance Welded (ERW)", "Structural Hollow Sections (SHS)", "Cold Drawn ERW Tube (CEW)"],
-          "Aluminium Tube": ["Round Tube", "Square Box Section", "Rectangular Box Section"],
+          "Stainless Steel Tube": ["Round Tube (Circular Hollow Section)", "Square / Rectangular Box Section", "Perforated Tube", "Other Product or Specification"],
+          "Mild Steel Welded Tube": ["Electric Resistance Welded (ERW)", "Structural Hollow Sections (SHS)", "Cold Drawn ERW Tube (CEW)", "Other Product or Specification"],
+          "Aluminium Tube": ["Round Tube", "Square Box Section", "Rectangular Box Section", "Other Product or Specification"],
 
-          "Stainless Steel Sheet & Plate": ["Hot Rolled / Cold Rolled Sheet & Plate", "Tread Plate (Floor / Chequer Plate)", "Perforated Sheet & Plate"],
-          "Mild Steel Sheet & Plate": ["Standard Plate", "Hot Rolled Sheet", "Cold Reduced Sheet", "Galvanised Sheet", "Floor / Tread Plate"],
-          "Aluminium Sheet & Plate": ["Aluminium Sheet (1050A, 5251, 3103, 5083)", "Aluminium Tread Plate 5 Bar"],
+          "Stainless Steel Sheet & Plate": ["Hot Rolled / Cold Rolled Sheet & Plate", "Tread Plate (Floor / Chequer Plate)", "Perforated Sheet & Plate", "Other Product or Specification"],
+          "Mild Steel Sheet & Plate": ["Standard Plate", "Hot Rolled Sheet", "Cold Reduced Sheet", "Galvanised Sheet", "Floor / Tread Plate", "Other Product or Specification"],
+          "Aluminium Sheet & Plate": ["Aluminium Sheet (1050A, 5251, 3103, 5083)", "Aluminium Tread Plate 5 Bar", "Other Product or Specification"],
 
-          "Pipe & Fittings": ["Welded & Seamless Pipe", "Butt weld fittings", "BSP screwed fittings", "High pressure 3000lb fittings", "Flanges (Raised Face, Slip-On, Weld Neck, Plate)"],
-          "Hygienic Tube & Fittings": ["ASTM A270 (Bright Annealed & Satin)", "DIN 11850 (Descaled or Satin)"],
+          "Pipe & Fittings": ["Welded & Seamless Pipe", "Butt weld fittings", "BSP screwed fittings", "High pressure 3000lb fittings", "Flanges (Raised Face, Slip-On, Weld Neck, Plate)", "Other Product or Specification"],
+          "Hygienic Tube & Fittings": ["ASTM A270 (Bright Annealed & Satin)", "DIN 11850 (Descaled or Satin)", "Other Product or Specification"],
 
-          "Additional Products": ["Walkway grating", "Mesh (Woven, welded)", "Expanded metal/diamond mesh", "Aluminised steel tube", "Cold rolled fin cut precision tube", "Mandrel bent elbows", "Carbon Pipes (A106 Grade B)"]
+          "Additional Products": ["Walkway grating", "Mesh (Woven, welded)", "Expanded metal/diamond mesh", "Aluminised steel tube", "Cold rolled fin cut precision tube", "Mandrel bent elbows", "Carbon Pipes (A106 Grade B)", "Other Product or Specification"]
         };
 
         // Render Active List Elements
@@ -378,6 +325,7 @@ import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.
       });
     </script>
   </body>
+  </Layout>
 </html>
 
 <style>

@@ -1,4 +1,5 @@
 ---
+import '../styles/index.css';
 const siteTitle = "Stonehenge Steel UK Ltd";
 
 
@@ -9,6 +10,7 @@ import sheetPlateImg from '../assets/sheetPlate.jpg';
 import hygienicImg from '../assets/hygienic.jpg';
 import additionalImg from '../assets/additional.jpg';
 import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+import SHLogoText from '../assets/Stonehenge-logo.png';
 
 import Layout from '../layouts/Layout.astro';
 
@@ -54,279 +56,234 @@ const products = [
 
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d4ec0e5d-872f-49f8-9816-692c649d41d9";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-    <title>{siteTitle} | Premium Metal Products</title>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container nav-content">
-        <div class="logo">
-          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
-          Stonehenge<strong>Steel</strong>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+<Layout title="Home">
+  <!-- Dynamic Carousel Hero Section -->
+  <header class="hero">
+    <!-- Carousel Background Slider Layers -->
+    <div class="hero-carousel-container">
+      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80')"></div>
+    </div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <span class="badge">Industrial Excellence</span>
-        <h1>Premium Steel & Metal Distribution</h1>
-        <p>Supplying top-grade stainless steel, mild steel, and aluminum products for construction, manufacturing, and hygienic applications.</p>
-        <div class="hero-buttons">
-          <a href="#products" class="btn btn-primary">View Catalog</a>
-          <a href="/contact" class="btn btn-secondary">Request Quote</a>
-        </div>
-      </div>
-    </header>
+    <!-- Dark overlay to ensure text contrast remains excellent -->
+    <div class="hero-tint"></div>
 
-    <!-- Products Section -->
-    <main id="products" class="products-section container">
-      <div class="section-header">
-        <h2>Our Product Categories</h2>
-        <div class="divider"></div>
-        <p>Browse our comprehensive inventory of raw materials and fittings, sourced from industry-leading manufacturers to meet your exact specifications.</p>
+    <div class="container hero-content">
+      <span class="badge">Industrial Excellence</span>
+      <h1>Premium Steel & Metal Distribution</h1>
+      <p>Supplying top-grade stainless steel, mild steel, and aluminum products for construction, manufacturing, and hygienic applications.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">View Catalog</a>
+        <a href="/contact" class="btn btn-secondary">Request Quote</a>
       </div>
+    </div>
 
-      <div class="products-grid">
-        {products.map((product) => (
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img src={product.image} alt={product.title} loading="lazy" />
-            </div>
-            <div class="card-content">
-              <h3>{product.title}</h3>
-              <p>{product.description}</p>
-              <a href={product.link} class="card-link">View Specifications &rarr;</a>
-            </div>
+    <!-- Interactive Navigation Dots -->
+    <div class="carousel-nav">
+      <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+      <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+      <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+      <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+    </div>
+  </header>
+
+  <!-- Products Catalog Grid Section -->
+  <section id="products" class="products-section container">
+    <div class="divider2"></div>
+    <div class="section-header">
+      <h2>Our Core Materials</h2>
+      <div class="divider"></div>
+      <p>Precision-sourced, carefully tested, and readily loaded for rapid delivery across the UK from our Mold, Flintshire facilities.</p>
+    </div>
+
+    <div class="products-grid">
+      {products.map((product) => (
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src={product.image} alt={product.title} loading="lazy" />
           </div>
-        ))}
-      </div>
-    </main>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-      <div class="container cta-content">
-        <h2>Need a custom dimension or bulk order?</h2>
-        <p>Our specialized team is ready to process your requirements. We offer precision cutting and rapid delivery on large-scale stock.</p>
-        <a href="/contact" class="btn btn-light">Contact Sales Team</a>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-      <div class="container footer-content">
-        <div class="footer-brand">
-          <div class="logo">
-            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
-            Stonehenge<strong>Steel</strong>
+          <div class="card-content">
+            <h3>{product.title}</h3>
+            <p>{product.description}</p>
+            <a href={product.link} class="card-link">
+              View Specifications
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
           </div>
-          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Categories</h4>
-          <ul>
-            <li><a href="/bar">Bar Stock</a></li>
-            <li><a href="/tube">Tubes</a></li>
-            <li><a href="/sheet-plate">Sheet & Plate</a></li>
-            <li><a href="/pipe">Pipes & Fittings</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
-          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
-            <p><strong>Stonehenge Steel UK Limited</strong><br />
-            6 Queens Lane<br />
-            Bromfield Industrial Estate<br />
-            Mold, Flintshire<br />
-            Wales, CH7 1JR</p>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
-</html>
+        </article>
+      ))}
+    </div>
+  </section>
+<div class="divider2"></div>
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+
+    <div class="cta-content container">
+      <h2>Need Custom Cutting or Special Processing?</h2>
+      <p>Our experienced metal distribution and warehousing facility features advanced sawing, profiling, and bespoke packaging options.</p>
+      <a href="/contact" class="btn-light">Contact Our Team</a>
+    </div>
+  </section>
+</Layout>
+
+<!-- Core Carousel Animation Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentIdx = 0;
+    const intervalTime = 6000; // Change background slide every 6 seconds
+    let carouselTimer: number;
+
+    function showSlide(index: number) {
+      // Safe guard against missing elements
+      if (slides.length === 0 || dots.length === 0) return;
+
+      // Remove active states
+      slides[currentIdx].classList.remove('active');
+      dots[currentIdx].classList.remove('active');
+
+      // Update index bound gracefully
+      currentIdx = (index + slides.length) % slides.length;
+
+      // Apply active states
+      slides[currentIdx].classList.add('active');
+      dots[currentIdx].classList.add('active');
+    }
+
+    function startTimer() {
+      carouselTimer = setInterval(() => {
+        showSlide(currentIdx + 1);
+      }, intervalTime);
+    }
+
+    function resetTimer() {
+      clearInterval(carouselTimer);
+      startTimer();
+    }
+
+    // Attach click triggers to indicator navigation dots
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        showSlide(idx);
+        resetTimer();
+      });
+    });
+
+    // Run carousel rotation loop
+    startTimer();
+  });
+</script>
+
 <style>
-  /* Built-in CSS - No configuration needed!
-    Using modern CSS variables and flexbox/grid.
-  */
-
-  :root {
-    --primary: #0284c7; /* Steel Blue */
-    --primary-dark: #0369a1;
-    --dark: #0f172a; /* Slate 900 */
-    --darker: #020617; /* Slate 950 */
-    --gray-light: #f8fafc; /* Slate 50 */
-    --gray: #64748b; /* Slate 500 */
-    --text-main: #334155; /* Slate 700 */
-    --white: #ffffff;
-    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Prevents the sticky navbar from hiding the section titles */
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: var(--font-family);
-    color: var(--text-main);
-    background-color: var(--gray-light);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* --- Navigation --- */
-  .navbar {
-    background-color: var(--darker);
-    color: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .logo-img {
-    display: block;
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-  }
-
-  .logo strong {
-    color: var(--primary);
-    font-weight: 800;
-  }
-
-  .logo-icon {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-color: var(--primary);
-    border-radius: 4px;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-  }
-
-  .nav-links a {
-    font-weight: 500;
-    color: #94a3b8;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover, .nav-links a.active {
-    color: var(--primary);
-  }
-
-  /* --- Hero Section --- */
+  /* --- Carousel Hero Layout Styles --- */
   .hero {
     position: relative;
-    height: 600px;
-    background-color: var(--dark);
+    height: 650px;
     display: flex;
     align-items: center;
     overflow: hidden;
+    background-color: var(--dark); /* Safe fallback base dark color */
   }
 
-  .hero-overlay {
+  /* Full Bleed Carousel Container */
+  .hero-carousel-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Using an unsplash steel factory image for the background */
-    background-image: url('https://images.unsplash.com/photo-1518105779142-d971f22c181b?auto=format&fit=crop&w=1920&q=80');
+    z-index: 1;
+  }
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0.25;
-    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s ease;
+    will-change: opacity;
+  }
+
+  /* Active Slide fades in and is layer-promoted */
+  .hero-slide.active {
+    opacity: 0.35; /* Perfect balance between visual drama and readability */
+    visibility: visible;
+  }
+
+  /* Dark tint filter on top of backgrounds for solid high-contrast reading */
+  .hero-tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(2, 6, 23, 0.85), rgba(15, 23, 42, 0.5));
+    z-index: 2;
   }
 
   .hero-content {
     position: relative;
-    z-index: 2;
-    max-width: 700px;
+    z-index: 3;
+    max-width: 750px;
+    animation: contentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .badge {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: rgba(2, 132, 199, 0.2);
-    color: #38bdf8;
-    border: 1px solid rgba(2, 132, 199, 0.4);
-    border-radius: 4px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
+  @keyframes contentReveal {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .hero h1 {
-    color: var(--white);
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 24px;
+  /* Slider Navigation Dot Elements */
+  .carousel-nav {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 12px;
+    align-items: center;
   }
 
-  .hero p {
-    color: #cbd5e1;
-    font-size: 1.25rem;
-    margin-bottom: 40px;
-    max-width: 600px;
+  .carousel-dot {
+    width: 24px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    outline: none;
+    padding: 0;
   }
 
+  .carousel-dot:hover {
+    background-color: rgba(255, 255, 255, 0.50);
+  }
+
+  .carousel-dot.active {
+    background-color: var(--primary); /* Deep Premium Accent Blue */
+    width: 48px; /* Smooth capsule expansion */
+  }
+
+  /* --- Navigation CTA Details --- */
   .hero-buttons {
     display: flex;
     gap: 16px;
@@ -353,227 +310,32 @@ const products = [
   .btn-primary:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
   }
 
   .btn-secondary {
     background-color: transparent;
     color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
   }
 
   .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  /* --- Products Section --- */
-  .products-section {
-    padding: 96px 24px;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .section-header h2 {
-    font-size: 2.5rem;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .divider {
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary);
-    margin: 0 auto 24px auto;
-    border-radius: 2px;
-  }
-
-  .section-header p {
-    font-size: 1.125rem;
-    color: var(--gray);
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 32px;
-  }
-
-  .product-card {
-    background-color: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-image-wrapper {
-    height: 220px;
-    overflow: hidden;
-  }
-
-  .card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .product-card:hover .card-image-wrapper img {
-    transform: scale(1.05);
-  }
-
-  .card-content {
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .card-content h3 {
-    font-size: 1.5rem;
-    color: var(--dark);
-    margin-bottom: 12px;
-  }
-
-  .card-content p {
-    color: var(--gray);
-    margin-bottom: 24px;
-    flex-grow: 1;
-  }
-
-  .card-link {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .card-link:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
-  }
-
-  /* --- CTA Section --- */
-  .cta-section {
-    background-color: var(--primary);
-    padding: 80px 24px;
-    text-align: center;
-  }
-
-  .cta-content {
-    max-width: 800px;
-  }
-
-  .cta-section h2 {
-    color: var(--white);
-    font-size: 2.25rem;
-    margin-bottom: 24px;
-  }
-
-  .cta-section p {
-    color: #e0f2fe;
-    font-size: 1.125rem;
-    margin-bottom: 40px;
-  }
-
-  .btn-light {
-    background-color: var(--white);
-    color: var(--primary);
-    font-size: 1.125rem;
-    padding: 16px 32px;
-  }
-
-  .btn-light:hover {
-    background-color: var(--gray-light);
+    border-color: var(--white);
     transform: translateY(-2px);
   }
 
-  /* --- Footer --- */
-  .footer {
-    background-color: var(--darker);
-    color: #94a3b8;
-    padding: 80px 0 32px 0;
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 64px;
-  }
-
-  .footer-brand p {
-    margin-top: 16px;
-    max-width: 300px;
-  }
-
-  .footer h4 {
-    color: var(--white);
-    font-size: 1.125rem;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .footer-links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-links a:hover {
-    color: var(--primary);
-  }
-
-  .footer-contact p {
-    margin-bottom: 12px;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid #1e293b;
-    padding-top: 32px;
-    text-align: center;
-    font-size: 0.875rem;
-  }
-
-  /* Responsive Design */
   @media (max-width: 768px) {
-    .nav-links {
-      display: none; /* Hide on mobile for simplicity in this demo */
+    .hero {
+      height: 550px;
     }
-
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
     .hero-buttons {
       flex-direction: column;
+      gap: 12px;
     }
-      /* Logo Image Layout Fixes */
-    .logo-img {
-      display: block;
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-    }
-
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: 32px;
+    .btn {
+      width: 100%;
     }
   }
 </style>
