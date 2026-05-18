@@ -1,0 +1,215 @@
+---
+import '../styles/global.css';
+const siteTitle = "Stonehenge Steel UK Ltd";
+import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bar Stock | {siteTitle}</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="/" class="logo">
+          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+          StoneHenge<strong>Steel</strong>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#products" class="active">Products</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="header-overlay"></div>
+      <div class="container header-content">
+        <h1>Bar Stock</h1>
+        <p>Premium stainless, mild, engineering, and aluminum bar products</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-section container">
+      <!-- Return Button -->
+      <a href="/#products" class="btn-return">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Products
+      </a>
+
+      <div class="spec-grid">
+
+        <!-- Stainless Steel Bar Stock -->
+        <div class="spec-card highlight-card">
+          <h2>Stainless Steel Bar Stock</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Grades</h3>
+            <ul class="spec-list">
+              <li>1.4307 (304L)</li>
+              <li>1.4404 (316L)</li>
+              <li>1.4305 (303)</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Forms Available</h3>
+            <ul class="spec-list">
+              <li>Round Bar</li>
+              <li>Flat Bar</li>
+              <li>Equal Angle</li>
+              <li>Hex Bar</li>
+              <li>Square Bar</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mild Steel Merchant Bar -->
+        <div class="spec-card">
+          <h2>Mild Steel Merchant Bar</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Round Bar</h3>
+            <ul class="spec-list">
+              <li>BS EN 10025-2 : 2004 – S275JR</li>
+              <li>BS 970: PART 1 : 1983 070M20</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Flat & Square Bar</h3>
+            <ul class="spec-list">
+              <li><strong>Flat Bar:</strong> BS EN 10025-2 : 2004 – S275JR</li>
+              <li><strong>Square Bar:</strong> BS EN 10025-2 : 2004 – S275JR</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Angle Bar</h3>
+            <ul class="spec-list">
+              <li><strong>Equal Angle:</strong> BS EN 10025-2 : 2004 – S275JR / S355JR</li>
+              <li><strong>Unequal Angle:</strong> BS EN 10025-2 : 2004 – S275JR / S355JR</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Engineering Steel -->
+        <div class="spec-card">
+          <h2>Engineering Steel</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Black Carbon</h3>
+            <ul class="spec-list">
+              <li>070M20 (EN3A) – Non-alloyed Low Carbon Steel</li>
+              <li>070M55 (EN9) – Non-alloyed .55% Medium Carbon Steel</li>
+              <li>080M40 (EN8) – Non-alloyed .40% Medium Carbon Steel</li>
+              <li>230M07 (EN1A) – Non-alloyed Free Machining Steel</li>
+              <li>S355</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Bright Carbon (Bright Mild Steel)</h3>
+            <ul class="spec-list">
+              <li>080A15</li>
+              <li>080A42 (EN8D)</li>
+              <li>212A42 (EN8DM)</li>
+              <li>230M07 (EN1A)</li>
+              <li>230M07PB (EN1A LEADED)</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Additional</h3>
+            <ul class="spec-list">
+              <li>Key Steel</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Aluminum Bar -->
+        <div class="spec-card">
+          <h2>Aluminum Bar</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Round Bar</h3>
+            <ul class="spec-list">
+              <li>Alloy 6026 T9</li>
+              <li>Alloy 2011 T3</li>
+              <li>Alloy 6082 T6</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Flat Bar</h3>
+            <ul class="spec-list">
+              <li>Alloy 6082 T6</li>
+              <li>Alloy 6063A T6</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Square Bar</h3>
+            <ul class="spec-list">
+              <li>Alloy 6082 T6</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2>Ready to place an order?</h2>
+        <p>Contact our sales team to check current stock, pricing, and specific tolerances for our bar products.</p>
+        <a href="/contact" class="btn-light">Contact Sales Team</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+            Stonehenge<strong>Steel</strong>
+          </div>
+          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/bar">Bar Stock</a></li>
+            <li><a href="/tube">Tubes</a></li>
+            <li><a href="/sheet-plate">Sheet & Plate</a></li>
+            <li><a href="/pipe">Pipes & Fittings</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
+          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
+            <p><strong>Stonehenge Steel UK Limited</strong><br />
+            6 Queens Lane<br />
+            Bromfield Industrial Estate<br />
+            Mold, Flintshire<br />
+            Wales, CH7 1JR</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

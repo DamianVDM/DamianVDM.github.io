@@ -1,0 +1,13 @@
+---
+import Website from '../pages/Stonehenge.astro';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Metal Products Catalog</title>
+  </head>
+  <body class="m-0 p-0">
+    <Website client:load />
+  </body>
+</html>

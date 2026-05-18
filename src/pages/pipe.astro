@@ -1,0 +1,155 @@
+---
+import '../styles/global.css';
+const siteTitle = "Stonehenge Steel UK Ltd";
+import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pipe & Fittings | {siteTitle}</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="/" class="logo">
+          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+          StoneHenge<strong>Steel</strong>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#products" class="active">Products</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div id="pipe-header-overlay" class="header-overlay"></div>
+      <div class="container header-content">
+        <h1>Pipe & Fittings</h1>
+        <p>Welded and seamless pipes alongside related industrial fittings</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-section container">
+      <!-- Return Button -->
+      <a href="/#products" class="btn-return">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Products
+      </a>
+
+      <div class="spec-grid">
+
+        <!-- Standard Pipe -->
+        <div class="spec-card highlight-card">
+          <h2>Welded & Seamless Pipe</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Standards</h3>
+            <ul class="spec-list">
+              <li>Welded And Seamless Pipe To <strong>ASTM A312 / ANSI B36.19</strong></li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Available Grades</h3>
+            <ul class="spec-list">
+              <li>1.4307 (304L)</li>
+              <li>1.4404 (316L)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Fittings & Flanges -->
+        <div class="spec-card">
+          <h2>Fittings & Flanges</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Standard Fittings</h3>
+            <ul class="spec-list">
+              <li>Butt weld fittings (ASTM A403)</li>
+              <li>BSP screwed fittings</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">High Pressure Fittings</h3>
+            <ul class="spec-list">
+              <li>High pressure 3000lb threaded and socket weld fittings to <strong>ANSI B 16.11</strong></li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Flanges</h3>
+            <ul class="spec-list">
+              <li>Raised Face</li>
+              <li>Slip-On</li>
+              <li>Weld Neck</li>
+              <li>Plate Flanges</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2>Ready to place an order?</h2>
+        <p>Contact our sales team to check current stock, pricing, and specific tolerances for our pipe and fitting products.</p>
+        <a href="/contact" class="btn-light">Contact Sales Team</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+            Stonehenge<strong>Steel</strong>
+          </div>
+          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/bar">Bar Stock</a></li>
+            <li><a href="/tube">Tubes</a></li>
+            <li><a href="/sheet-plate">Sheet & Plate</a></li>
+            <li><a href="/pipe">Pipes & Fittings</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
+          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
+            <p><strong>Stonehenge Steel UK Limited</strong><br />
+            6 Queens Lane<br />
+            Bromfield Industrial Estate<br />
+            Mold, Flintshire<br />
+            Wales, CH7 1JR</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* Local override for the header background image just for this page */
+  #pipe-header-overlay {
+    background-image: url('https://images.unsplash.com/photo-1584985651596-f94951167683?auto=format&fit=crop&w=1920&q=80');
+  }
+</style>

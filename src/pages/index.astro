@@ -1,0 +1,576 @@
+---
+const siteTitle = "Stonehenge Steel UK Ltd";
+
+
+import tubeImg from '../assets/stainless-steel-welded-pipe.jpg';
+import barImg from '../assets/Bar-stock-1-scaled.jpg';
+import pipeImg from '../assets/pipe.jpeg';
+import sheetPlateImg from '../assets/sheetPlate.jpg';
+import hygienicImg from '../assets/hygienic.jpg';
+import additionalImg from '../assets/additional.jpg';
+import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+
+const products = [
+  {
+    title: "Bar",
+    description: "Premium stainless, mild, engineering, and aluminum bar stock. Available in round, flat, square, hex, and angle forms for varied applications.",
+    image: barImg.src,
+    link: "/bar"
+  },
+  {
+    title: "Tube",
+    description: "Stainless, mild, and aluminum welded structural and decorative tubes. Ideal for tube bending, swaging, flaring, and precise structural work.",
+    image: tubeImg.src,
+    link: "/tube"
+  },
+  {
+    title: "Sheet & Plate",
+    description: "Hot rolled, cold rolled, tread plates, and perforated sheets in stainless steel, mild steel, and aluminum across various sizes and finishes.",
+    image: sheetPlateImg.src,
+    link: "/sheet-plate"
+  },
+  {
+    title: "Pipe",
+    description: "Welded and seamless pipes to ASTM/ANSI standards. Includes butt weld fittings, flanges, and high-pressure 3000lb threaded fittings.",
+    image: pipeImg.src,
+    link: "/pipe"
+  },
+  {
+    title: "Hygienic Tube & Fittings",
+    description: "High-purity ASTM A270 and DIN 11850 tubes in bright annealed and satin polished finishes, designed specifically for sensitive applications.",
+    image: hygienicImg.src,
+    link: "/hygienic"
+  },
+  {
+    title: "Additional Products",
+    description: "Walkway grating, woven/welded mesh, expanded metal, precision tubes, mandrel bent elbows, and carbon pipes.",
+    image: additionalImg.src,
+    link: "/additional"
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle} | Premium Metal Products</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <div class="logo">
+          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+          Stonehenge<strong>Steel</strong>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <span class="badge">Industrial Excellence</span>
+        <h1>Premium Steel & Metal Distribution</h1>
+        <p>Supplying top-grade stainless steel, mild steel, and aluminum products for construction, manufacturing, and hygienic applications.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">View Catalog</a>
+          <a href="/contact" class="btn btn-secondary">Request Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Products Section -->
+    <main id="products" class="products-section container">
+      <div class="section-header">
+        <h2>Our Product Categories</h2>
+        <div class="divider"></div>
+        <p>Browse our comprehensive inventory of raw materials and fittings, sourced from industry-leading manufacturers to meet your exact specifications.</p>
+      </div>
+
+      <div class="products-grid">
+        {products.map((product) => (
+          <div class="product-card">
+            <div class="card-image-wrapper">
+              <img src={product.image} alt={product.title} loading="lazy" />
+            </div>
+            <div class="card-content">
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
+              <a href={product.link} class="card-link">View Specifications &rarr;</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2>Need a custom dimension or bulk order?</h2>
+        <p>Our specialized team is ready to process your requirements. We offer precision cutting and rapid delivery on large-scale stock.</p>
+        <a href="/contact" class="btn btn-light">Contact Sales Team</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+            Stonehenge<strong>Steel</strong>
+          </div>
+          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/bar">Bar Stock</a></li>
+            <li><a href="/tube">Tubes</a></li>
+            <li><a href="/sheet-plate">Sheet & Plate</a></li>
+            <li><a href="/pipe">Pipes & Fittings</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
+          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
+            <p><strong>Stonehenge Steel UK Limited</strong><br />
+            6 Queens Lane<br />
+            Bromfield Industrial Estate<br />
+            Mold, Flintshire<br />
+            Wales, CH7 1JR</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* Built-in CSS - No configuration needed!
+    Using modern CSS variables and flexbox/grid.
+  */
+
+  :root {
+    --primary: #0284c7; /* Steel Blue */
+    --primary-dark: #0369a1;
+    --dark: #0f172a; /* Slate 900 */
+    --darker: #020617; /* Slate 950 */
+    --gray-light: #f8fafc; /* Slate 50 */
+    --gray: #64748b; /* Slate 500 */
+    --text-main: #334155; /* Slate 700 */
+    --white: #ffffff;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Prevents the sticky navbar from hiding the section titles */
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-main);
+    background-color: var(--gray-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* --- Navigation --- */
+  .navbar {
+    background-color: var(--darker);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .logo strong {
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  .logo-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary);
+    border-radius: 4px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    font-weight: 500;
+    color: #94a3b8;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+  }
+
+  /* --- Hero Section --- */
+  .hero {
+    position: relative;
+    height: 600px;
+    background-color: var(--dark);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Using an unsplash steel factory image for the background */
+    background-image: url('https://images.unsplash.com/photo-1518105779142-d971f22c181b?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(2, 132, 199, 0.4);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .hero p {
+    color: #cbd5e1;
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* --- Products Section --- */
+  .products-section {
+    padding: 96px 24px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary);
+    margin: 0 auto 24px auto;
+    border-radius: 2px;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .product-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-image-wrapper {
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .card-content {
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .card-content p {
+    color: var(--gray);
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .card-link {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .card-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+
+  /* --- CTA Section --- */
+  .cta-section {
+    background-color: var(--primary);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+  }
+
+  .cta-section h2 {
+    color: var(--white);
+    font-size: 2.25rem;
+    margin-bottom: 24px;
+  }
+
+  .cta-section p {
+    color: #e0f2fe;
+    font-size: 1.125rem;
+    margin-bottom: 40px;
+  }
+
+  .btn-light {
+    background-color: var(--white);
+    color: var(--primary);
+    font-size: 1.125rem;
+    padding: 16px 32px;
+  }
+
+  .btn-light:hover {
+    background-color: var(--gray-light);
+    transform: translateY(-2px);
+  }
+
+  /* --- Footer --- */
+  .footer {
+    background-color: var(--darker);
+    color: #94a3b8;
+    padding: 80px 0 32px 0;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+
+  .footer-brand p {
+    margin-top: 16px;
+    max-width: 300px;
+  }
+
+  .footer h4 {
+    color: var(--white);
+    font-size: 1.125rem;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+  }
+
+  .footer-contact p {
+    margin-bottom: 12px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding-top: 32px;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Hide on mobile for simplicity in this demo */
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+      /* Logo Image Layout Fixes */
+    .logo-img {
+      display: block;
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

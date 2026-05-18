@@ -1,0 +1,202 @@
+---
+import '../styles/global.css';
+const siteTitle = "Stonehenge Steel UK Ltd";
+import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tube Products | {siteTitle}</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="/" class="logo">
+          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+          StoneHenge<strong>Steel</strong>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#products" class="active">Products</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div id="tube-header-overlay" class="header-overlay"></div>
+      <div class="container header-content">
+        <h1>Tube Products</h1>
+        <p>Stainless, mild, and aluminum welded structural and decorative tubes</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-section container">
+      <!-- Return Button -->
+      <a href="/#products" class="btn-return">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Products
+      </a>
+
+      <div class="spec-grid">
+
+        <!-- Stainless Steel Welded Structural & Decorative Tube -->
+        <div class="spec-card highlight-card">
+          <h2>Stainless Steel Tube</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Grades</h3>
+            <ul class="spec-list">
+              <li>1.4301 (304)</li>
+              <li>1.4401 (316)</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Forms & Profiles</h3>
+            <ul class="spec-list">
+              <li>Round Tube (Circular Hollow Section)</li>
+              <li>Square and Rectangular Hollow Section (Box section)</li>
+              <li>Perforated Tube (produced according to EN 10305-3)</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Finishes & Gauges</h3>
+            <ul class="spec-list">
+              <li><strong>Finish:</strong> Mill finish and DP (Dull Polish) 320 grit</li>
+              <li><strong>Gauges:</strong> 1.2mm, 1.5mm, 2mm</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Applications</h3>
+            <ul class="spec-list">
+              <li>Suitable for tube bending, swaging and flaring.</li>
+              <li>Imperial, metric, and popular automotive sizes available.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mild Steel Welded Tube -->
+        <div class="spec-card">
+          <h2>Mild Steel Welded Tube</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Electric Resistance Welded (ERW)</h3>
+            <ul class="spec-list">
+              <li>EN 10305:2010 Part 3 and 5 E220</li>
+              <li>Ideal for racking, furniture, fabrications, shop fittings etc.</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Structural Hollow Sections (SHS)</h3>
+            <ul class="spec-list">
+              <li>EN 10219:1997 (S235JRH)</li>
+              <li>Cold Formed Welded Structural Hollow Sections</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Cold Drawn ERW Tube (CEW)</h3>
+            <ul class="spec-list">
+              <li>EN 10305-2</li>
+              <li>For precision applications requiring accurate dimensional tolerances, superior surface finish and high tensile properties.</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Availability</h3>
+            <ul class="spec-list">
+              <li>Round, Square, and Rectangular profiles.</li>
+              <li>Sizes available on request.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Aluminium Tube -->
+        <div class="spec-card">
+          <h2>Aluminium Tube</h2>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Round Tube</h3>
+            <ul class="spec-list">
+              <li>Alloy 6082 T6</li>
+              <li>Alloy 6063 T6</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Square Box Section</h3>
+            <ul class="spec-list">
+              <li>Alloy 6082 T6</li>
+              <li>Alloy 6063 T6</li>
+            </ul>
+          </div>
+
+          <div class="spec-group">
+            <h3 class="spec-title">Rectangular Box Section</h3>
+            <ul class="spec-list">
+              <li>Alloy 6082 T6</li>
+              <li>Alloy 6063 T6</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2>Ready to place an order?</h2>
+        <p>Contact our sales team to check current stock, pricing, and specific tolerances for our tube products.</p>
+        <a href="/contact" class="btn-light">Contact Sales Team</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
+            Stonehenge<strong>Steel</strong>
+          </div>
+          <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="/bar">Bar Stock</a></li>
+            <li><a href="/tube">Tubes</a></li>
+            <li><a href="/sheet-plate">Sheet & Plate</a></li>
+            <li><a href="/pipe">Pipes & Fittings</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>Email:</strong> sales@stonehengesteel.co.uk</p>
+          <p><strong>Phone</strong>: +44 (0) 1352 965 050</p>
+            <p><strong>Stonehenge Steel UK Limited</strong><br />
+            6 Queens Lane<br />
+            Bromfield Industrial Estate<br />
+            Mold, Flintshire<br />
+            Wales, CH7 1JR</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 {siteTitle}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
