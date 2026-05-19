@@ -142,15 +142,17 @@ a {
 .badge {
     display: inline-block;
     padding: 6px 12px;
-    background-color: rgba(2, 132, 199, 0.2);
-    color: #38bdf8;
-    border: 1px solid rgba(2, 132, 199, 0.4);
+    background-color: rgba(198, 170, 130, 0.25); /* Bumped up opacity */
+    color: #ffd79e; /* Bright, glowing bronze text */
+    border: 1px solid rgba(198, 170, 130, 0.7); /* Sharp, defined border */
     border-radius: 4px;
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 24px;
+    backdrop-filter: blur(4px); /* Blurs the carousel image underneath so text is readable */
+    text-shadow: 0 0 8px rgba(255, 215, 158, 0.5); /* Makes the text pop */
 }
 
 .hero h1 {

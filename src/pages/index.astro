@@ -215,20 +215,26 @@ const products = [
     will-change: opacity;
   }
 
-  /* Active Slide fades in and is layer-promoted */
+  /* Increased active background visibility to make details highly discernible */
   .hero-slide.active {
-    opacity: 0.35; /* Perfect balance between visual drama and readability */
+    opacity: 0.65; /* Sourced to preserve details clearly */
     visibility: visible;
   }
 
-  /* Dark tint filter on top of backgrounds for solid high-contrast reading */
+  /* Lightened dynamic mask using cohesive tints of your custom color palette.
+    Replaced heavy solid dark grays with a subtle, professional linear-gradient.
+  */
   .hero-tint {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(2, 6, 23, 0.85), rgba(15, 23, 42, 0.5));
+    background: linear-gradient(
+      to right,
+      rgba(41, 63, 74, 0.65) 0%,
+      rgba(62, 95, 110, 0.25) 100%
+    );
     z-index: 2;
   }
 
@@ -279,8 +285,8 @@ const products = [
   }
 
   .carousel-dot.active {
-    background-color: var(--primary); /* Deep Premium Accent Blue */
-    width: 48px; /* Smooth capsule expansion */
+    background-color: var(--primary); /* Gold/Brass Accent */
+    width: 48px; /* Capsule expansion */
   }
 
   /* --- Navigation CTA Details --- */
@@ -310,7 +316,7 @@ const products = [
   .btn-primary:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    box-shadow: 0 4px 12px rgba(198, 170, 130, 0.3);
   }
 
   .btn-secondary {

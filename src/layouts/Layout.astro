@@ -6,11 +6,24 @@ import Layout from '../layouts/Layout.astro';
 
 interface Props {
   title?: string;
+  activeTab?: string; // Optional prop to manually force an active tab if needed
 }
 
-const { title = "Premium Metal Products" } = Astro.props;
+const { title, activeTab } = Astro.props;
+const displayTitle = title || "Premium Metal Products";
 const siteTitle = "Stonehenge Steel UK Ltd";
 
+
+
+const pathname = Astro.url ? Astro.url.pathname : '';
+
+const isHome = activeTab === 'home' || pathname === '/' || pathname === '/index.astro';
+const isGallery = activeTab === 'gallery' || pathname.startsWith('/gallery');
+const isContact = activeTab === 'contact' || pathname.startsWith('/contact') || pathname.endsWith('#contact');
+
+// Any of your individual product pages will highlight the 'Products' tab
+const productPaths = ['/bar', '/tube', '/sheet-plate', '/pipe', '/hygienic', '/additional'];
+const isProducts = activeTab === 'products' || productPaths.some(path => pathname.startsWith(path)) || (pathname === '/' && activeTab === 'products');
 ---
 
 <html lang="en">
@@ -26,16 +39,24 @@ const siteTitle = "Stonehenge Steel UK Ltd";
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container nav-content">
-        <!-- Swapped text out to render side-by-side images -->
+        <!-- Logo Links Home -->
         <a href="/" class="logo">
           <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
           <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
         </a>
         <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/#products" class="active">Products</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/#contact">Contact</a></li>
+          <li>
+            <a href="/" class={isHome && !isProducts ? "active" : ""}>Home</a>
+          </li>
+          <li>
+            <a href="/#products" class={isProducts ? "active" : ""}>Products</a>
+          </li>
+          <li>
+            <a href="/gallery" class={isGallery ? "active" : ""}>Gallery</a>
+          </li>
+          <li>
+            <a href="/#contact" class={isContact ? "active" : ""}>Contact</a>
+          </li>
         </ul>
       </div>
     </nav>
