@@ -1,5 +1,6 @@
 ---
 import '../styles/index.css';
+import { Image } from 'astro:assets';
 const siteTitle = "Stonehenge Steel UK Ltd";
 
 
@@ -18,37 +19,37 @@ const products = [
   {
     title: "Bar",
     description: "Premium stainless, mild, engineering, and aluminum bar stock. Available in round, flat, square, hex, and angle forms for varied applications.",
-    image: barImg.src,
+    image: barImg,
     link: "/bar"
   },
   {
     title: "Tube",
     description: "Stainless, mild, and aluminum welded structural and decorative tubes. Ideal for tube bending, swaging, flaring, and precise structural work.",
-    image: tubeImg.src,
+    image: tubeImg,
     link: "/tube"
   },
   {
     title: "Sheet & Plate",
     description: "Hot rolled, cold rolled, tread plates, and perforated sheets in stainless steel, mild steel, and aluminum across various sizes and finishes.",
-    image: sheetPlateImg.src,
+    image: sheetPlateImg,
     link: "/sheet-plate"
   },
   {
     title: "Pipe",
     description: "Welded and seamless pipes to ASTM/ANSI standards. Includes butt weld fittings, flanges, and high-pressure 3000lb threaded fittings.",
-    image: pipeImg.src,
+    image: pipeImg,
     link: "/pipe"
   },
   {
     title: "Hygienic Tube & Fittings",
     description: "High-purity ASTM A270 and DIN 11850 tubes in bright annealed and satin polished finishes, designed specifically for sensitive applications.",
-    image: hygienicImg.src,
+    image: hygienicImg,
     link: "/hygienic"
   },
   {
     title: "Additional Products",
     description: "Walkway grating, woven/welded mesh, expanded metal, precision tubes, mandrel bent elbows, and carbon pipes.",
-    image: additionalImg.src,
+    image: additionalImg,
     link: "/additional"
   }
 ];
@@ -102,7 +103,13 @@ const products = [
       {products.map((product) => (
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src={product.image} alt={product.title} loading="lazy" />
+            <Image
+              src={product.image}
+              alt={product.title}
+              width={600}
+              height={400}
+              loading="lazy"
+            />
           </div>
           <div class="card-content">
             <h3>{product.title}</h3>

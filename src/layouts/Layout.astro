@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { Image } from 'astro:assets';
 import SHLogo from '../assets/StoneHenge-Steel-logo-animation-for-website-no-BG.gif';
 import SHLogoText from '../assets/Stonehenge-logo.png';
 import Layout from '../layouts/Layout.astro';
@@ -21,7 +22,7 @@ const isHome = activeTab === 'home' || pathname === '/' || pathname === '/index.
 const isGallery = activeTab === 'gallery' || pathname.startsWith('/gallery');
 const isContact = activeTab === 'contact' || pathname.startsWith('/contact') || pathname.endsWith('#contact');
 
-// Any of your individual product pages will highlight the 'Products' tab
+
 const productPaths = ['/bar', '/tube', '/sheet-plate', '/pipe', '/hygienic', '/additional'];
 const isProducts = activeTab === 'products' || productPaths.some(path => pathname.startsWith(path)) || (pathname === '/' && activeTab === 'products');
 ---
@@ -36,13 +37,27 @@ const isProducts = activeTab === 'products' || productPaths.some(path => pathnam
     <title>{title} | {siteTitle}</title>
   </head>
   <body>
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container nav-content">
         <!-- Logo Links Home -->
         <a href="/" class="logo">
-          <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
-          <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
+          <Image
+            src={SHLogo}
+            alt="Stonehenge Logo Animation"
+            class="logo-img"
+            width={24}
+            height={24}
+            loading="eager"
+          />
+          <Image
+            src={SHLogoText}
+            alt="Stonehenge Steel"
+            class="logo-text-img"
+            height={20}
+            loading="eager"
+          />
         </a>
         <ul class="nav-links">
           <li>
@@ -63,7 +78,6 @@ const isProducts = activeTab === 'products' || productPaths.some(path => pathnam
 
     <!-- Main Content Slot -->
     <main>
-      <!-- Essential for allowing your page-specific contents to render inside this wrapper layout -->
       <slot />
     </main>
 
@@ -72,8 +86,21 @@ const isProducts = activeTab === 'products' || productPaths.some(path => pathnam
       <div class="container footer-content">
         <div class="footer-brand">
           <div class="logo">
-            <img src={SHLogo.src} alt="Stonehenge Logo" class="logo-img" />
-            <img src={SHLogoText.src} alt="Stonehenge Steel" class="logo-text-img" />
+          <Image
+            src={SHLogo}
+            alt="Stonehenge Logo Animation"
+            class="logo-img"
+            width={24}
+            height={24}
+            loading="lazy"
+          />
+          <Image
+            src={SHLogoText}
+            alt="Stonehenge Steel"
+            class="logo-text-img"
+            height={20}
+            loading="lazy"
+          />
           </div>
           <p>Your trusted partner in premium metal and steel distribution across all industrial sectors.</p>
         </div>
@@ -84,6 +111,7 @@ const isProducts = activeTab === 'products' || productPaths.some(path => pathnam
             <li><a href="/tube">Tubes</a></li>
             <li><a href="/sheet-plate">Sheet & Plate</a></li>
             <li><a href="/pipe">Pipes & Fittings</a></li>
+            <li><a href="/gallery">Gallery</a></li>
           </ul>
         </div>
         <div class="footer-contact">

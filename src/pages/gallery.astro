@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 // Sourced Stock/Facility Gallery Categories & Details
 const galleryItems = [
@@ -32,7 +33,7 @@ const galleryItems = [
     title: 'Secure Fleet & Delivery',
     subtitle: 'Nationwide Distribution',
     description: 'Stonehenge Steel runs a dedicated logistics and crane-loading transport fleet, ensuring structural components and bundles of tubes or pipes arrive safely strapped, protected, and exactly when needed.',
-    image: 'https://images.unsplash.com/photo-1601584658375-7b5a17de7c0d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80',
     tag: 'Logistics'
   },
   {
@@ -40,7 +41,7 @@ const galleryItems = [
     title: 'Hygienic Polished Stock',
     subtitle: 'ASTM A270 & DIN 11850',
     description: 'A close-up view of our high-purity unannealed and bright-annealed satin polished tubes, packaged and sleeved individually to maintain pristine hygienic surface finish for food, dairy, and beverage industries.',
-    image: 'https://images.unsplash.com/photo-1565513904940-0eb1a7ea4b97?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1508873696983-2df519f0397e?auto=format&fit=crop&w=800&q=80',
     tag: 'Inventory'
   },
   {
@@ -48,7 +49,7 @@ const galleryItems = [
     title: 'Specialized Mesh & Grating',
     subtitle: 'Architectural & Safety Lines',
     description: 'Our walk-way grating, woven mesh, and expanded diamond safety meshes are stockpiled in standard sheets and custom cuts, ready for rapid dispatch and high-corrosion industrial environments.',
-    image: 'https://images.unsplash.com/photo-1542183204-7128f7fcb183?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80',
     tag: 'Inventory'
   }
 ];
@@ -140,9 +141,21 @@ const carouselSlides = [
     <div class="gallery-explanatory-grid">
       {galleryItems.map((item) => (
         <article class="gallery-card">
-          <div class="gallery-card-image-box">
+          <div
+            class="gallery-card-image-box lightbox-trigger"
+            data-src={item.image}
+            data-title={item.title}
+            data-subtitle={item.subtitle}
+          >
             <span class="card-tag-badge">{item.tag}</span>
-            <img src={item.image} alt={item.title} class="lightbox-trigger" data-title={item.title} data-subtitle={item.subtitle} />
+            {/* Swapped standard img with Astro's performance-optimised Image component */}
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={800}
+              height={533}
+              loading="lazy"
+            />
             <div class="image-hover-glass">
               <span class="glass-zoom-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -179,6 +192,7 @@ const carouselSlides = [
     <div class="lightbox-overlay"></div>
     <div class="lightbox-content-box">
       <button id="lightbox-close-btn" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+      {/* Note: This remains a standard native img because the lightbox dynamically swaps targets on the client side using JS */}
       <img id="lightbox-target-image" src="" alt="Enlarged View" />
       <div class="lightbox-caption-pnl">
         <h4 id="lightbox-target-title">Image Title</h4>
@@ -198,9 +212,9 @@ const carouselSlides = [
     const rightArrow = document.querySelector('.arrow-right');
     let currentSlide = 0;
     const autoIntervalTime = 5500;
-    let autoTimer: number;
+    let autoTimer;
 
-    function selectSlide(index: number) {
+    function selectSlide(index) {
       if (slides.length === 0 || bullets.length === 0) return;
 
       // Remove current active states
@@ -240,6 +254,7 @@ const carouselSlides = [
       resetTimer();
     });
 
+    // Right arrow navigation
     rightArrow?.addEventListener('click', () => {
       selectSlide(currentSlide + 1);
       resetTimer();
@@ -252,7 +267,7 @@ const carouselSlides = [
     // --- 2. LIGHTBOX MODAL SCRIPTS ---
     const lightbox = document.getElementById('gallery-lightbox');
     const closeBtn = document.getElementById('lightbox-close-btn');
-    const targetImg = document.getElementById('lightbox-target-image') as HTMLImageElement;
+    const targetImg = document.getElementById('lightbox-target-image');
     const targetTitle = document.getElementById('lightbox-target-title');
     const targetSub = document.getElementById('lightbox-target-sub');
     const triggers = document.querySelectorAll('.lightbox-trigger');
@@ -260,13 +275,14 @@ const carouselSlides = [
     // Open Lightbox when any trigger is clicked
     triggers.forEach((trigger) => {
       trigger.addEventListener('click', (e) => {
-        const clickedImg = e.currentTarget as HTMLImageElement;
-        const sourceSrc = clickedImg.getAttribute('src') || '';
-        const sourceTitle = clickedImg.getAttribute('data-title') || '';
-        const sourceSub = clickedImg.getAttribute('data-subtitle') || '';
+        const clickedBox = e.currentTarget;
+        const sourceSrc = clickedBox.getAttribute('data-src') || '';
+        const sourceTitle = clickedBox.getAttribute('data-title') || '';
+        const sourceSub = clickedBox.getAttribute('data-subtitle') || '';
 
         if (lightbox && targetImg && targetTitle && targetSub) {
           targetImg.src = sourceSrc;
+          targetImg.alt = sourceTitle;
           targetTitle.textContent = sourceTitle;
           targetSub.textContent = sourceSub;
 
@@ -305,7 +321,7 @@ const carouselSlides = [
   .gallery-carousel-section {
     padding: 80px 0;
     background-color: var(--white);
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--gray-border);
   }
 
   .section-title-wrapper {
@@ -316,9 +332,9 @@ const carouselSlides = [
   .gallery-mini-badge {
     display: inline-block;
     padding: 6px 14px;
-    background-color: #e0f2fe; /* Light Sky Blue */
+    background-color: rgba(198, 170, 130, 0.15); /* Translucent brass gold */
     color: var(--primary);
-    border: 1px solid #bae6fd;
+    border: 1px solid rgba(198, 170, 130, 0.3);
     border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -356,7 +372,7 @@ const carouselSlides = [
     margin: 0 auto;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(62, 95, 110, 0.15);
   }
 
   .carousel-inner-track {
@@ -388,7 +404,12 @@ const carouselSlides = [
   /* Translucent overlay inside active slides for rich text reading */
   .slide-info-overlay {
     width: 100%;
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+    background: linear-gradient(
+      to top,
+      rgba(41, 63, 74, 0.75) 0%,
+      rgba(62, 95, 110, 0.2) 60%,
+      transparent 100%
+    );
     padding: 40px 48px;
     color: var(--white);
     text-align: left;
@@ -402,7 +423,8 @@ const carouselSlides = [
   }
 
   .slide-info-overlay p {
-    color: #cbd5e1;
+    color: var(--white);
+    opacity: 0.9;
     font-size: 1.05rem;
     max-width: 600px;
     line-height: 1.5;
@@ -487,8 +509,8 @@ const carouselSlides = [
     background-color: var(--white);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
+    border: 1px solid var(--gray-border);
+    box-shadow: 0 4px 6px -1px rgba(62, 95, 110, 0.02);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -496,7 +518,7 @@ const carouselSlides = [
 
   .gallery-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 15px 30px -5px rgba(62, 95, 110, 0.08);
   }
 
   /* Image zoom & Lightbox trigger effects */
@@ -542,7 +564,7 @@ const carouselSlides = [
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.4);
+    background-color: rgba(62, 95, 110, 0.4);
     opacity: 0;
     display: flex;
     align-items: center;
@@ -559,7 +581,7 @@ const carouselSlides = [
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--white);
     color: var(--dark);
     font-size: 0.825rem;
     font-weight: 700;
@@ -599,7 +621,7 @@ const carouselSlides = [
   }
 
   .gallery-card-info p {
-    color: var(--gray);
+    color: var(--text-main);
     font-size: 0.95rem;
     line-height: 1.55;
     margin: 0;
@@ -626,7 +648,7 @@ const carouselSlides = [
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.95); /* Deep slate backdrop */
+    background-color: rgba(41, 63, 74, 0.95); /* Deep slate backdrop */
   }
 
   .lightbox-content-box {
@@ -684,7 +706,7 @@ const carouselSlides = [
   .lightbox-caption-pnl {
     background-color: var(--white);
     padding: 24px 32px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--gray-border);
   }
 
   .lightbox-caption-pnl h4 {
